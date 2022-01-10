@@ -1,0 +1,19 @@
+<app-card [data]="summary">
+    <span class="badge-content badge badge-notification p-3 position-absolute"
+    [ngStyle]="{'backgroundColor': summary?.icon?.bgColor, 'boxShadow': '0 .125rem .25rem '+summary?.icon?.bgColor}">
+        <i [class]="summary.icon.name" class="text-white badge-data"></i>
+    </span>
+    <small class="footer-content">
+        <span [ngClass]="{
+              'text-success': (summary!.data!.footerData > 0),
+              'text-danger': (summary!.data!.footerData < 0)
+              }"><b>{{summary!.data!.footerData}}%</b></span>
+        <span class="text-secondary"> {{summary!.footer}}</span>
+    </small>
+    <div class="body-content text-right">
+        <small class="card-title text-secondary">{{summary?.title}}</small>
+        <h5 class="card-text" *ngIf="summary?.type === 'currency'">{{ summary?.data?.data | suffixCurrency}}</h5>
+        <h5 class="card-text" *ngIf="summary?.type === 'date'">{{ summary?.data?.data | date}}</h5>
+        <h5 class="card-text" *ngIf="summary?.type === 'number'">{{ summary?.data?.data }}</h5>
+    </div>
+</app-card>
