@@ -1,25 +1,26 @@
 import { Color } from "chart.js";
-type BasicDataBar = {
-    labels?: string[],
-    datasets: [
-        {
-            data?: number[],
-            pointStyle? : 'circle' | 'cross' | 'crossRot' | 'dash' | 'line' | 'rect' | 'rectRounded' | 'rectRot' | 'star' | 'triangle',
-            barThickness?: number,
-            borderRadius?: {
-                topLeft: 20,
-                bottomLeft: 20,
-                topRight: 20,
-                bottomRight: 20,
-            },
-            backgroundColor?: Color,
-            borderColor?: Color,
-            radius?: 3,
-        }
-        
-    ]
+
+interface dataset {
+    data?: number[],
+    pointStyle? : 'circle' | 'cross' | 'crossRot' | 'dash' | 'line' | 'rect' | 'rectRounded' | 'rectRot' | 'star' | 'triangle',
+    barThickness?: number,
+    borderRadius?: {
+        topLeft: number,
+        bottomLeft: number,
+        topRight: number,
+        bottomRight: number,
+    },
+    backgroundColor?: Color,
+    borderColor?: Color,
+    radius?: number,
 }
-type graph = {
+
+interface BasicDataBar {
+    labels?: string[],
+    datasets: dataset[]
+}
+
+interface graph {
     title: string,
     subTitle: string,
     footer: string,

@@ -7,7 +7,6 @@ import DashboardSummary from 'src/app/types/DashboardSummary';
   styleUrls: ['./dashboard-summary.component.css']
 })
 export class DashboardSummaryComponent implements OnInit {
-  amount = 34_50_100;
   @Input('summary') summary!: DashboardSummary;
   constructor() { }
 

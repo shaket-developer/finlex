@@ -1,8 +1,8 @@
-export type data = {
+export interface SummaryData {
     data: string | number,
     footerData: number
 }
-type DashboardSummary = {
+interface DashboardSummary {
     title: string,
     footer: string,
     icon: {
@@ -10,7 +10,7 @@ type DashboardSummary = {
         bgColor: string
     },
     apiCall: () => string,
-    data: data | null,
+    data: SummaryData | null,
     type: 'currency' | 'number' | 'date';
 }
 
