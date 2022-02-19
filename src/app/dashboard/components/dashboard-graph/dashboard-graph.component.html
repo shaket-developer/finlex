@@ -1,6 +1,6 @@
-<app-card [data]="graph">
+<app-card [data]="graph" style="max-width:100%;">
     <div class="col-auto p-0 py-1 mb-3 badge-content" [ngStyle]="{'backgroundColor': graph.bgColor}">
-        <p-chart [type]="graph.type" [data]="graph.generalSetting" [options]="graph.styleSetting"></p-chart>
+        <p-chart [type]="graph.type" [data]="graph.generalSetting" [responsive]="false" [options]="graph.styleSetting" style="max-width:100%;"></p-chart>
     </div>
     <div class="body-content">
         <h5>{{graph.title}}</h5>
@@ -10,5 +10,4 @@
         <span class="text-secondary"><i [class]="graph.icon.name"></i> &nbsp;
             {{graph?.footer}}</span>
     </small>
-    
 </app-card>

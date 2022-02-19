@@ -15,10 +15,16 @@ export class DashboardGraphListComponent implements OnInit {
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * On Component Initialization, we set the graph data
+   */
   ngOnInit() {
     this.setGraphData();
   }
 
+  /**
+   * setGraphData, we fetch the data using chart.apiCall() and then format the data in the required format
+   */
   setGraphData() {
     let chartDataFiles: Observable<any>[] = [];
     this.graphs.forEach(chart => {
@@ -56,7 +62,7 @@ export class DashboardGraphListComponent implements OnInit {
 
   /**
    * 
-   * @param {string} file 
+   * @param {string} file file holds file name for dummy data
    * @returns {Observable}
    */
   getChartData(file: string): Observable<any> {

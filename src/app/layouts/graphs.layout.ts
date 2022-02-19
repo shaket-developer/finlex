@@ -16,6 +16,8 @@ interface dataset {
 }
 
 interface BasicDataBar {
+    responsive?: boolean,
+    maintainAspectRatio?: boolean,
     labels?: string[],
     datasets: dataset[]
 }
@@ -27,6 +29,11 @@ interface graph {
     icon: {
         name: string,
     },
+    options?: {
+        responsive: boolean,
+        maintainAspectRatio: boolean
+    },
+    responsive?: boolean,
     apiCall: () => string,
     type: 'line' | 'bar' | 'radar' | 'doughnut' | 'polarArea' | 'bubble' | 'scatter',
     bgColor: Color,
@@ -45,9 +52,16 @@ const graphs: graph[] = [
         apiCall: () => {
             return 'website-views.json'
         },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true
+        },
+        responsive: true,
         type: 'bar',
         bgColor: '#e31e5b',
         generalSetting: {
+            responsive: true,
+            maintainAspectRatio: true,
             datasets: [
                 {
                   data: [],
@@ -125,10 +139,16 @@ const graphs: graph[] = [
         apiCall: () => {
             return 'daily-sales.json'
         },
-        
+        options: {
+            responsive: true,
+            maintainAspectRatio: true
+        },
         type: 'line',
+        responsive: true,
         bgColor: '#34a051',
         generalSetting: {
+            responsive: true,
+            maintainAspectRatio: true,
             datasets: [
                 {
                   data: [],
@@ -202,7 +222,10 @@ const graphs: graph[] = [
         },
         bgColor: '#232324',
         type: 'line',
+        responsive: true,
         generalSetting: {
+            responsive: true,
+            maintainAspectRatio: true,
             datasets: [
                 {
                   data: [],
